@@ -1,0 +1,25 @@
+# Labels for Civic Engagement Repository
+
+- **bug**: #d73a4a
+- **enhancement**: #a2eeef
+- **documentation**: #0075ca
+- **question**: #d10000
+- **help wanted**: #008672
+- **good first issue**: #7057ff
+- **wontfix**: #ffffff
+- **duplicate**: #cfd3d7
+- **invalid**: #e7e7e7
+- **feature**: #b19cd9
+- **design**: #f9d0c4
+- **research**: #d2c0e2
+- **planning**: #f2d6c7
+- **testing**: #b4e1f8
+- **deployment**: #ffcccb
+- **backlog**: #e8e8e8
+- **in progress**: #ffeb3b
+- **review**: #f1c40f
+- **blocked**: #ff6347
+- **urgent**: #ff4500
+- **low priority**: #add8e6
+- **medium priority**: #ffd700
+- **high priority**: #ff0000
