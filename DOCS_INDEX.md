@@ -25,7 +25,7 @@ Quick reference for finding information about the Civic Engagement Platform.
 - **Module Tests**: Run `python -m pytest tests/ -v` for comprehensive module testing
 
 ### Security Information
-- **Current Status**: Government-grade security implemented (v1.1.0+)
+- **Current Status**: Security improvements implemented (v1.1.0+) - additional audit needed
 - **Audit Trail**: All security fixes documented in [CHANGELOG.md](CHANGELOG.md)
 - **Test Results**: 100% security validation pass rate
 
