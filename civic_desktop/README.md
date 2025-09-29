@@ -78,6 +78,26 @@ A modular, secure, and transparent desktop application for contract-based civic 
 
 ---
 
+## ⚠️ Development Status
+
+**Important Notice**: This platform is currently under active development and is **not ready for production deployment**. 
+
+### Current Limitations:
+- Critical security issues need resolution (see [DEVELOPMENT_TASKS.txt](../DEVELOPMENT_TASKS.txt))
+- Exception handling requires improvement throughout codebase
+- Test coverage needs expansion for production readiness
+- Several TODO items in codebase need completion
+
+### Recommended Use:
+- ✅ Development and testing environments
+- ✅ Educational and demonstration purposes
+- ✅ Contributing to development efforts
+- ❌ Production civic governance deployment
+
+For production deployment timeline and requirements, see the main [README.md](../README.md) development status section.
+
+---
+
 ## Environment Setup
 To switch environments, set the config file path before running the app:
 
@@ -93,7 +113,7 @@ To switch environments, set the config file path before running the app:
   pip install -r requirements-test.txt
   pytest tests/
   ```
-- Production:
+- Production (⚠️ Not recommended - development platform only):
   ```bash
   export CIVIC_CONFIG=config/prod_config.json
   pip install -r requirements-prod.txt

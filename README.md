@@ -24,9 +24,9 @@
 
 ## 📋 Latest Updates
 - See [CHANGELOG.md](CHANGELOG.md) for recent changes, security improvements, and bug fixes.
-- **Current Version:** 1.6.0 (Production Ready)
+- **Current Version:** 1.6.0 (Development)
 - **Latest Update:** Complete GitHub integration with update checking and version control
-- **Status:** ✅ Government-grade security implemented with automated updates
+- **Status:** 🚧 Under active development - not yet ready for production deployment
 
 ---
 
@@ -138,6 +138,28 @@ civic_desktop/
 - Comprehensive test suite
 - Advanced analytics and dashboards
 - Internationalization and accessibility improvements
+
+## Development Status & Known Issues
+
+⚠️ **Important**: This platform is under active development and contains several issues that prevent production deployment:
+
+### Critical Issues to Address:
+- **Security**: Private key management needs improvement
+- **Code Quality**: Exception handling and error management need enhancement
+- **Testing**: Test coverage needs expansion across all modules
+- **TODO Comments**: Several hardcoded values need proper implementation
+- **Validation**: Input validation and sanitization need comprehensive review
+
+### Production Readiness Checklist:
+- [ ] Resolve all critical security vulnerabilities
+- [ ] Implement comprehensive error handling
+- [ ] Achieve 90%+ test coverage
+- [ ] Complete all TODO items in codebase
+- [ ] Security audit and penetration testing
+- [ ] Performance testing and optimization
+- [ ] Documentation review and validation
+
+See [DEVELOPMENT_TASKS.txt](DEVELOPMENT_TASKS.txt) for detailed task list and priority assessment.
 
 
 ## Features Needed for Government Adoption
