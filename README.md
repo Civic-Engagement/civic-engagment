@@ -383,6 +383,7 @@ python main.py
 ### 🔗 **Repository Structure**
 - Main Platform: `/civic_desktop/` - Core application modules
 - Documentation: `/*.md` - Comprehensive guides and specifications
+  - **[Stakeholder Documentation](docs/STAKEHOLDERS.md)** - Complete stakeholder and user group analysis
 - Tests: `/civic_desktop/tests/` - Automated testing suite
 - Configuration: `/civic_desktop/config/` - Environment-specific settings
 
