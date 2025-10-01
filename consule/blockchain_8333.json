@@ -1,0 +1,14 @@
+{
+  "node_id": "user-system-8333",
+  "chain_length": 1,
+  "blocks": [
+    {
+      "index": 0,
+      "timestamp": "2025-10-01T13:59:48.539633",
+      "data": "Genesis Block",
+      "previous_hash": "",
+      "hash": "fedca446ec36eb71f174bb135ce3924f7203210ec3fa3ba55a98ec4428e0cce8"
+    }
+  ],
+  "saved_at": "2025-10-01T13:59:48.539633"
+}

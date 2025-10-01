@@ -1,0 +1,23 @@
+{
+  "node_id": "node-8001",
+  "chain_length": 2,
+  "blocks": [
+    {
+      "index": 0,
+      "timestamp": "2025-10-01T13:57:44.614399",
+      "data": "Genesis Block",
+      "previous_hash": "",
+      "hash": "9b9022114dcd74a7598721dfdb9de558f795bdc2178564a66a52c6542f7f1c20"
+    },
+    {
+      "index": 1,
+      "timestamp": "2025-10-01T13:57:44.614399",
+      "data": {
+        "test": "data"
+      },
+      "previous_hash": "9b9022114dcd74a7598721dfdb9de558f795bdc2178564a66a52c6542f7f1c20",
+      "hash": "97eb1e74947819777e75c29a6fc2cef4f655a1108d5752b737fe27fefb14fa9f"
+    }
+  ],
+  "saved_at": "2025-10-01T13:57:44.614399"
+}

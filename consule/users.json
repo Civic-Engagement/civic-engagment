@@ -1,0 +1,58 @@
+{
+  "68747c50-8fb0-4eba-b78e-535e917de170": {
+    "user_id": "68747c50-8fb0-4eba-b78e-535e917de170",
+    "username": "stevewc1234",
+    "password_hash": "db1bc62a4e989a6b00bc0c77cd3007fb4ec30587829f53065e3f88c0edf714d1",
+    "legal_first_name": "steve",
+    "legal_last_name": "cornell",
+    "date_of_birth": "1994-01-01",
+    "legal_middle_name": "william",
+    "public_key_pem": "",
+    "private_key_pem": "",
+    "email_addresses": [
+      {
+        "email": "stevewc1234@gmail.com",
+        "is_primary": true,
+        "is_verified": false,
+        "verification_token": "b2afc176-7c6c-4674-832f-79b2ce4f5b29",
+        "created_at": "2025-10-01T13:45:03.676632",
+        "verified_at": null
+      }
+    ],
+    "phone_numbers": [
+      {
+        "number": "6178211157",
+        "phone_type": "mobile",
+        "country_code": "+1",
+        "is_primary": true,
+        "is_verified": false,
+        "verification_code": "656f33",
+        "created_at": "2025-10-01T13:45:03.676632",
+        "verified_at": null
+      }
+    ],
+    "addresses": [
+      {
+        "address_type": "residence",
+        "street_address": "1146 w apache st. apt 1",
+        "street_address_2": "",
+        "city": "phoenix",
+        "state_province": "az",
+        "postal_code": "85007",
+        "country": "usa",
+        "is_primary": true,
+        "created_at": "2025-10-01T13:45:03.676632"
+      }
+    ],
+    "countries_of_citizenship": [
+      "usa"
+    ],
+    "organization_requests": [],
+    "is_active": true,
+    "is_verified": false,
+    "verification_level": "basic",
+    "created_at": "2025-10-01T13:45:03.676632",
+    "updated_at": "2025-10-01T13:45:03.676632",
+    "last_login": "2025-10-01T13:59:30.521473"
+  }
+}

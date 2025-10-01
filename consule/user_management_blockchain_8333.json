@@ -1,0 +1,50 @@
+{
+  "node_id": "USER_NODE_8333_1759352687",
+  "node_name": "Demo User Management",
+  "blockchain_type": "Proof_of_Authority",
+  "authorities": {
+    "GENESIS_AUTH": {
+      "authority_id": "GENESIS_AUTH",
+      "name": "Genesis Authority",
+      "public_key": "GENESIS_PUBLIC_KEY",
+      "node_address": "localhost:8333",
+      "granted_by": "SYSTEM",
+      "granted_at": "2025-10-01T14:04:47.993537",
+      "is_active": true,
+      "blocks_created": 0,
+      "blocks_validated": 0
+    }
+  },
+  "chain_length": 1,
+  "pending_blocks_count": 0,
+  "min_validations_required": 1,
+  "blocks": [
+    {
+      "index": 0,
+      "timestamp": "2025-10-01T14:04:47.993537",
+      "data": {
+        "type": "GENESIS",
+        "message": "Genesis Block - PoA Blockchain Initialized",
+        "authorities_initialized": 1,
+        "blockchain_started_at": "2025-10-01T14:04:47.993537"
+      },
+      "previous_hash": "0",
+      "creator_id": "GENESIS_AUTH",
+      "creator_name": "Genesis Authority",
+      "created_at": "2025-10-01T14:04:47.993537",
+      "validations": [
+        {
+          "validator_id": "GENESIS_AUTH",
+          "validator_name": "Genesis Authority",
+          "validation_timestamp": "2025-10-01T14:04:47.993537",
+          "signature": "SIG_d28e3823b011319c"
+        }
+      ],
+      "is_finalized": true,
+      "finalized_at": "2025-10-01T14:04:47.993537",
+      "hash": "b6e85d02a0c4eb3a6edab1305b99e674ce02b1eae273e85efca53253c7f43d24"
+    }
+  ],
+  "pending_blocks": [],
+  "last_saved": "2025-10-01T14:04:47.993537"
+}

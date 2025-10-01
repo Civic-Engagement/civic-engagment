@@ -40,17 +40,21 @@ class SimpleBlock:
 
 class SimpleP2PNode:
     """Simple P2P networking node"""
-    def __init__(self, host: str = "localhost", port: int = 8333, node_id: str = None):
+    def __init__(self, host: str = "localhost", port: int = 8333, node_id: str = None, blockchain_file: str = None):
         self.host = host
         self.port = port
         self.node_id = node_id or f"node-{port}"
+        self.blockchain_file = blockchain_file or f"blockchain_{port}.json"
         self.peers: List[str] = []
         self.blockchain: List[SimpleBlock] = []
         self.running = False
         
-        # Create genesis block
-        genesis = SimpleBlock(0, "Genesis Block")
-        self.blockchain.append(genesis)
+        # Load existing blockchain or create genesis block
+        self.load_blockchain()
+        if not self.blockchain:
+            genesis = SimpleBlock(0, "Genesis Block")
+            self.blockchain.append(genesis)
+            self.save_blockchain()
         
         # Socket for listening
         self.server_socket = None
@@ -227,6 +231,9 @@ class SimpleP2PNode:
             'block': new_block.to_dict()
         }
         self.broadcast_to_peers(block_msg)
+        
+        # Save blockchain to file
+        self.save_blockchain()
     
     def add_block_from_peer(self, block_dict: Dict):
         """Add block received from peer"""
@@ -269,6 +276,48 @@ class SimpleP2PNode:
         
         time.sleep(1)  # Give server time to start
         return True
+    
+    def save_blockchain(self):
+        """Save blockchain to JSON file"""
+        try:
+            blockchain_data = {
+                'node_id': self.node_id,
+                'chain_length': len(self.blockchain),
+                'blocks': [block.to_dict() for block in self.blockchain],
+                'saved_at': datetime.now().isoformat()
+            }
+            
+            with open(self.blockchain_file, 'w') as f:
+                json.dump(blockchain_data, f, indent=2)
+            
+            print(f"💾 Blockchain saved to {self.blockchain_file}")
+        except Exception as e:
+            print(f"❌ Failed to save blockchain: {e}")
+    
+    def load_blockchain(self):
+        """Load blockchain from JSON file"""
+        try:
+            with open(self.blockchain_file, 'r') as f:
+                blockchain_data = json.load(f)
+            
+            # Reconstruct blocks
+            for block_dict in blockchain_data['blocks']:
+                block = SimpleBlock(
+                    block_dict['index'],
+                    block_dict['data'],
+                    block_dict['previous_hash']
+                )
+                # Preserve the original timestamp and hash
+                block.timestamp = block_dict['timestamp']
+                block.hash = block_dict['hash']
+                self.blockchain.append(block)
+            
+            print(f"📁 Loaded blockchain with {len(self.blockchain)} blocks from {self.blockchain_file}")
+            
+        except FileNotFoundError:
+            print(f"📁 No existing blockchain file found, will create new one")
+        except Exception as e:
+            print(f"❌ Failed to load blockchain: {e}")
     
     def stop(self):
         """Stop the node"""
