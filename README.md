@@ -383,6 +383,8 @@ python main.py
 ### 🔗 **Repository Structure**
 - Main Platform: `/civic_desktop/` - Core application modules
 - Documentation: `/*.md` - Comprehensive guides and specifications
+  - **[Roadmap Summary](ROADMAP_SUMMARY.md)** - Quick reference guide for project timeline and milestones
+  - **[Project Roadmap & Timeline](PROJECT_ROADMAP.md)** - Detailed strategic planning and future development phases (2025-2027+)
   - **[Technical Architecture Overview](TECHNICAL_ARCHITECTURE.md)** - Complete technical architecture documentation
   - **[Requirements Document](REQUIREMENTS.md)** - Comprehensive functional and non-functional requirements
   - **[Stakeholder Documentation](docs/STAKEHOLDERS.md)** - Complete stakeholder and user group analysis
