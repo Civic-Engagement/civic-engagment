@@ -1,0 +1,108 @@
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    CIVIC ENGAGEMENT PLATFORM                             │
+│                   Core Features Architecture                             │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           USER INTERFACE LAYER                           │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌────────────┐ │
+│  │   Calendar   │  │   Debate     │  │   Profile    │  │Participation│ │
+│  │      UI      │  │      UI      │  │   Editor     │  │  Dashboard │ │
+│  │              │  │              │  │              │  │            │ │
+│  │ • Event List │  │ • Topics     │  │ • Edit Info  │  │ • Stats    │ │
+│  │ • Create     │  │ • Arguments  │  │ • Activity   │  │ • Progress │ │
+│  │ • Register   │  │ • Voting     │  │ • History    │  │ • Notify   │ │
+│  └──────────────┘  └──────────────┘  └──────────────┘  └────────────┘ │
+│         │                 │                 │                 │         │
+└─────────┼─────────────────┼─────────────────┼─────────────────┼─────────┘
+          │                 │                 │                 │
+          ▼                 ▼                 ▼                 ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        BUSINESS LOGIC LAYER                              │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌────────────┐ │
+│  │    Event     │  │   Debate     │  │     User     │  │  Session   │ │
+│  │   Manager    │  │   Backend    │  │   Backend    │  │  Manager   │ │
+│  │              │  │              │  │              │  │            │ │
+│  │ • Create     │  │ • Topics     │  │ • Profile    │  │ • Current  │ │
+│  │ • Register   │  │ • Arguments  │  │ • Update     │  │ • Auth     │ │
+│  │ • Check-in   │  │ • Votes      │  │ • Activity   │  │ • Perms    │ │
+│  │ • Status     │  │ • Review     │  │ • Validation │  │            │ │
+│  └──────────────┘  └──────────────┘  └──────────────┘  └────────────┘ │
+│         │                 │                 │                 │         │
+└─────────┼─────────────────┼─────────────────┼─────────────────┼─────────┘
+          │                 │                 │                 │
+          └─────────────────┴─────────────────┴─────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         DATA ACCESS LAYER                                │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌────────────┐ │
+│  │   Events     │  │   Debates    │  │    Users     │  │ Blockchain │ │
+│  │   Database   │  │   Database   │  │   Database   │  │   Ledger   │ │
+│  │              │  │              │  │              │  │            │ │
+│  │events_db.json│  │debates_db.jsn│  │ users_db.json│  │ Pages →    │ │
+│  │              │  │              │  │              │  │ Chapters → │ │
+│  │ • Events     │  │ • Topics     │  │ • Profiles   │  │ Books →    │ │
+│  │ • Attendees  │  │ • Arguments  │  │ • Sessions   │  │ Parts      │ │
+│  │ • Outcomes   │  │ • Votes      │  │ • Keys       │  │            │ │
+│  └──────────────┘  └──────────────┘  └──────────────┘  └────────────┘ │
+│                                                              │           │
+└──────────────────────────────────────────────────────────────┼───────────┘
+                                                               │
+                                    ┌──────────────────────────┘
+                                    │
+                                    ▼
+                        ┌───────────────────────┐
+                        │   BLOCKCHAIN AUDIT    │
+                        │      TRAIL SYSTEM     │
+                        │                       │
+                        │ • event_created       │
+                        │ • event_registered    │
+                        │ • topic_created       │
+                        │ • argument_submitted  │
+                        │ • profile_updated     │
+                        │ • All actions logged  │
+                        └───────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        DATA FLOW EXAMPLE                                 │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  User Action: Create Event                                              │
+│       │                                                                  │
+│       ▼                                                                  │
+│  1. Calendar UI ─────────────────> Validates input                      │
+│       │                                                                  │
+│       ▼                                                                  │
+│  2. Event Manager ───────────────> Checks permissions                   │
+│       │                            Validates event type                 │
+│       │                            Checks notice period                 │
+│       │                                                                  │
+│       ▼                                                                  │
+│  3. Events Database ─────────────> Stores event data                    │
+│       │                                                                  │
+│       ▼                                                                  │
+│  4. Blockchain ──────────────────> Records audit trail                  │
+│                                    (event_created action)               │
+│                                                                          │
+│  Result: Event created, stored, and permanently recorded                │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                     KEY INTEGRATION POINTS                               │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  1. Role-Based Permissions: SessionManager.has_permission()             │
+│  2. Blockchain Recording: add_user_action()                             │
+│  3. User Authentication: SessionManager.is_authenticated()              │
+│  4. Activity History: search_user_actions()                             │
+│  5. Database Access: load_data() / save_data()                          │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘

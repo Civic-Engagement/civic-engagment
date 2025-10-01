@@ -114,6 +114,19 @@ class SessionManager:
         return is_valid
     
     @classmethod
+    def update_current_user(cls, updated_data: Dict[str, Any]):
+        """Update current user session with new data"""
+        if cls._current_session:
+            # Update allowed fields in session
+            allowed_fields = ['first_name', 'last_name', 'city', 'state', 'country', 'bio']
+            for field, value in updated_data.items():
+                if field in allowed_fields:
+                    cls._current_session[field] = value
+            
+            cls._current_session['last_activity'] = datetime.now().isoformat()
+            cls._save_session()
+    
+    @classmethod
     def logout(cls):
         """Logout current user and clear session"""
         cls._current_session = None

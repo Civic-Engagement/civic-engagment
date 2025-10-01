@@ -584,6 +584,44 @@ class UserBackend:
         
         return True, f"Role updated from {old_role} to {new_role}"
     
+    def update_user_profile(self, user_email: str, updated_data: Dict[str, Any]) -> bool:
+        """
+        Update user profile information
+        
+        Args:
+            user_email: Email of user to update
+            updated_data: Dictionary of fields to update
+        
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            # Load users database
+            users_data = self._load_users_db()
+            user_index = next((i for i, u in enumerate(users_data['users']) if u['email'] == user_email), None)
+            
+            if user_index is None:
+                return False
+            
+            # Update allowed fields
+            allowed_fields = ['first_name', 'last_name', 'city', 'state', 'country', 'bio']
+            
+            for field, value in updated_data.items():
+                if field in allowed_fields:
+                    users_data['users'][user_index][field] = value
+            
+            # Update timestamp
+            users_data['users'][user_index]['profile_updated_at'] = datetime.now().isoformat()
+            
+            # Save changes
+            self._save_users_db(users_data)
+            
+            return True
+        
+        except Exception as e:
+            print(f"Error updating user profile: {e}")
+            return False
+    
     def get_users_by_role(self, role: str) -> List[Dict[str, Any]]:
         """Get all users with specific role"""
         role_valid, _ = DataValidator.validate_user_role(role)
