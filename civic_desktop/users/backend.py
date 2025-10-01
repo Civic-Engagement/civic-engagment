@@ -160,19 +160,9 @@ class UserBackend:
     def _verify_password(self, password: str, hashed_password: str) -> bool:
         """Verify password against stored hash"""
         try:
-                )
-                
-                if is_valid_founder:
-                    user_role = 'contract_founder'
-                    founder_info = founder_data
-                    # Key marked as used automatically by HardcodedFounderKeys.validate_founder_key
-                else:
-                    # Invalid founder key - continue with regular citizen registration
-                    pass
-                    
-            except Exception as e:
-                # Error validating founder key - continue with regular citizen registration
-                pass
+            return bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8'))
+        except Exception:
+            return False
         
         # Create user record
         user_id = self._generate_user_id()
