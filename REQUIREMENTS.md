@@ -1642,23 +1642,33 @@ The Civic Engagement Platform is a constitutional democracy system that combines
 
 ## 🔄 FUTURE REQUIREMENTS (Roadmap)
 
-### Phase 2: Network Expansion
+**For detailed roadmap with timelines, milestones, dependencies, and resource requirements, see [PROJECT_ROADMAP.md](PROJECT_ROADMAP.md)**
+
+### Phase 2: Network Expansion (Q1-Q2 2025)
 - **REQ-F2.1**: Web-based client application
 - **REQ-F2.2**: Mobile applications (iOS/Android)
 - **REQ-F2.3**: Multi-node P2P network
 - **REQ-F2.4**: Distributed consensus improvements
 
-### Phase 3: Advanced Features
+### Phase 3: Advanced Features (Q3-Q4 2025)
 - **REQ-F3.1**: Multi-language support
 - **REQ-F3.2**: Advanced analytics and AI insights
 - **REQ-F3.3**: External ID verification integration
 - **REQ-F3.4**: Email and notification system
 
-### Phase 4: Scalability
+### Phase 4: Scalability (2026)
 - **REQ-F4.1**: Database migration to scalable solution
 - **REQ-F4.2**: Load balancing and clustering
 - **REQ-F4.3**: Content delivery optimization
 - **REQ-F4.4**: Global deployment infrastructure
+
+### Phase 5: Advanced Democracy Features (2027+)
+- Liquid democracy implementation
+- Quadratic voting system
+- Deliberative polling integration
+- Blockchain voting verification
+- AI-assisted policymaking
+- Virtual town hall integration
 
 ---
 

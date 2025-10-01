@@ -136,6 +136,8 @@ The Civic Engagement Platform represents a **complete digital democracy solution
 
 **Foundation for**: Future distributed governance networks, cross-platform democracy tools, international civic engagement systems, and next-generation democratic innovation.
 
+**Future Development**: See [PROJECT_ROADMAP.md](../PROJECT_ROADMAP.md) for detailed 2025-2027+ expansion plans including web/mobile apps, AI features, and global deployment.
+
 ---
 
 *"Democracy is not just a political system - it's a way of life. This platform makes that way of life accessible, transparent, and rewarding for every citizen."*
