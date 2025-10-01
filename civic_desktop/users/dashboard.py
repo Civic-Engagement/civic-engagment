@@ -414,6 +414,8 @@ class UserDashboard(QWidget if PYQT_AVAILABLE else object):
     
     def create_activity_tab(self):
         """Create activity tab with user's civic engagement history"""
+        from users.profile_editor import ActivityHistoryWidget
+        
         tab = QWidget()
         layout = QVBoxLayout()
         
@@ -444,18 +446,15 @@ class UserDashboard(QWidget if PYQT_AVAILABLE else object):
             self.activity_stats[key] = count_label
         
         summary_group.setLayout(summary_layout)
-        
-        # Activity history
-        history_group = QGroupBox("📜 Recent Activity History")
-        history_layout = QVBoxLayout()
-        
-        self.activity_history_list = QListWidget()
-        history_layout.addWidget(self.activity_history_list)
-        
-        history_group.setLayout(history_layout)
-        
         layout.addWidget(summary_group)
-        layout.addWidget(history_group)
+        
+        # Activity history widget
+        if self.current_user:
+            self.activity_history_widget = ActivityHistoryWidget(
+                self.current_user['email'], 
+                self
+            )
+            layout.addWidget(self.activity_history_widget)
         
         tab.setLayout(layout)
         return tab
@@ -793,7 +792,11 @@ class UserDashboard(QWidget if PYQT_AVAILABLE else object):
     
     def on_update_profile_clicked(self):
         """Handle update profile action"""
-        QMessageBox.information(self, "Update Profile", "Profile update functionality will be implemented in a future update.")
+        from users.profile_editor import ProfileEditDialog
+        
+        dialog = ProfileEditDialog(self.current_user, self)
+        dialog.profile_updated.connect(self.refresh_dashboard)
+        dialog.exec_()
     
     def on_backup_keys_clicked(self):
         """Handle backup keys action"""
